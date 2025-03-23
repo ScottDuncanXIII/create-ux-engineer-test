@@ -16,9 +16,6 @@
     color: var(--color--attention);
   }
 
-  .confirmation__item {
-  }
-
   .confirmation__item-heading {
     font-size: clamp(1.2rem, 0.703vw, 1.8rem);
   }
