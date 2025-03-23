@@ -17,7 +17,7 @@
 
 .form-heading {
   animation: anim-chromatic-abberation 5s ease infinite;
-  font-size: clamp(2.2rem, 4vw, 4.8rem);
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
   margin: 2rem 0 6rem;
   line-height: 1.4;
   display: block;

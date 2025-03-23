@@ -199,7 +199,7 @@ function App() {
     <div className="create-ux-app">
       <div className="form-wrapper">
         <h1 className="form-heading" ref={headingRef}>
-          Create UX Engineer Test
+          UX Engineer Test
         </h1>
 
         {appState === "form" && (

@@ -1,4 +1,4 @@
-# Create UX Engineer Test
+# UX Engineer Test
 
 This project uses React, Typescript, Javascript, JSX and GSAP
 
