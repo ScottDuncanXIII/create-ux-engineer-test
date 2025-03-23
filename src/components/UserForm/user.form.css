@@ -1,0 +1,13 @@
+.user-form {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  height: 100%;
+  width: 100%;
+
+  .user-form__buttons {
+    display: flex;
+    gap: 2.6rem;
+  }
+}

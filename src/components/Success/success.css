@@ -1,0 +1,14 @@
+.success {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+
+  .success__message {
+    font-size: clamp(2.8rem, 1.953vw, 5rem);
+    color: var(--color--success);
+    text-align: center;
+    text-wrap: balance;
+  }
+}

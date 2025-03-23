@@ -1,0 +1,287 @@
+.user-form-input {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6em;
+  justify-content: left;
+  max-width: 800px;
+  text-align: left;
+  transition: padding-block-end 0.5s;
+  width: 100%;
+
+  &.user-form-input--text-array {
+    border: 4px solid var(--color-b);
+    padding: 3rem;
+
+    @media (max-width: 640px) {
+      padding: 2.4rem;
+
+      .user-form-input__error-list {
+        margin: 10px 0 0 10px;
+      }
+    }
+
+    &.user-form-input--status-active {
+      padding-block-end: clamp(4rem, 1.563vw, 6rem);
+    }
+  }
+  .user-form-input__label {
+    font-size: clamp(1.4rem, 0.703vw, 2rem);
+
+    sup {
+      color: var(--color--invalid);
+      font-size: 1.2rem;
+      margin: 0 1rem 0 0;
+      vertical-align: top;
+    }
+  }
+
+  .user-form-input__container--text-array {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    gap: 5rem;
+
+    @media (max-width: 640px) {
+      flex-direction: column;
+      gap: 4.2em;
+    }
+
+    .user-form-input__wrapper {
+      display: flex;
+      flex-grow: 1;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  .user-form-input__wrapper {
+    position: relative;
+  }
+
+  .user-form-input__input {
+    background-color: var(--color-a);
+    border: 4px solid var(--color-b);
+    padding: 0.8em 1.2em;
+    font-size: clamp(1.2rem, 0.625vw, 1.6rem);
+    font-weight: 500;
+    font-family: inherit;
+    position: relative;
+    transition: border 0.5s;
+    width: -webkit-fill-available;
+    z-index: 1;
+
+    &:focus-within {
+      border: 4px dotted var(--color--focus);
+      outline: none;
+
+      .user-form-input__status {
+        background-color: aqua;
+      }
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:focus {
+      -webkit-text-fill-color: var(--color-b);
+      -webkit-box-shadow: 0 0 0px 1000px var(--color--autofill) inset;
+    }
+
+    &.user-form-input__input--select {
+      font-size: clamp(0.8rem, 0.625vw, 1.6rem);
+    }
+  }
+
+  .user-form-input__radio-group {
+    position: relative;
+    z-index: 2;
+  }
+
+  .user-form-input__status {
+    background-color: var(--color--invalid);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: transform 0.5s, background-color 0.5s;
+    width: 100%;
+    z-index: 0;
+  }
+
+  .user-form-input__status--valid,
+  .user-form-input__status--invalid {
+    transform: translate(3%, 40%);
+  }
+
+  .user-form-input__status--valid {
+    background-color: var(--color--valid);
+  }
+
+  .user-form-input__error-list {
+    color: var(--color--attention);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: clamp(0.9rem, 0.469vw, 1.2rem);
+    list-style: none;
+    margin: 30px 0 0 50px;
+    padding: 0;
+
+    @media (max-width: 640px) {
+      margin: 25px 0 0 20px;
+    }
+  }
+
+  .user-form-input__results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6em;
+    margin: 0;
+    margin-block-start: clamp(2rem, 0.781vw, 4rem);
+  }
+
+  .user-form-input__result {
+    align-items: center;
+    background: var(--color-c);
+    color: #ffffff;
+    display: inline-flex;
+    font-size: clamp(1rem, 0.547vw, 1.4rem);
+    gap: 1.8rem;
+    padding: 1rem 1.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .user-form-input__result-remove {
+    background: none;
+    border: none;
+    color: var(--color--invalid);
+    cursor: pointer;
+    font-family: "Press Start 2P", system-ui, Avenir, Helvetica, Arial,
+      sans-serif;
+    font-size: 1.4rem;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .user-form-input__radio-group {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    margin: 20px 0 30px;
+
+    @media (max-width: 640px) {
+      flex-direction: column;
+      margin: 20px 0 0 20px;
+    }
+  }
+
+  .user-form-input__radio {
+    display: flex;
+    align-items: center;
+    gap: 1.6em;
+
+    @media (max-width: 640px) {
+      gap: 2em;
+    }
+  }
+
+  .user-form-input__radio-label {
+    font-size: clamp(1.2rem, 0.547vw, 1.4rem);
+  }
+
+  .user-form-input__radio-input {
+    align-items: center;
+    appearance: none;
+    background-color: var(--color-a);
+    border: 0.35rem solid var(--color-b);
+    border-radius: 50%;
+    display: flex;
+    flex-shrink: 0;
+    height: clamp(2.6rem, 1.172vw, 3rem);
+    justify-content: center;
+    margin: 0;
+    width: clamp(2.6rem, 1.172vw, 3rem);
+
+    &:before {
+      background-color: var(--color--valid);
+      border-radius: 50%;
+      content: "";
+      display: block;
+      height: 65%;
+      transform: scale(0);
+      transition: 0.2s transform;
+      width: 65%;
+    }
+
+    &:checked {
+      &:before {
+        transform: scale(1);
+      }
+    }
+
+    &:focus-within {
+      border: 0.35rem dotted var(--color--focus);
+      outline: none;
+    }
+  }
+
+  .user-form-input__checkbox_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+    font-size: 2rem;
+  }
+
+  .user-form-input__checkbox {
+    align-items: center;
+    appearance: none;
+    background-color: var(--color-a);
+    border: 0.35rem solid var(--color-b);
+    display: flex;
+    flex-shrink: 0;
+    height: clamp(2.6rem, 1.172vw, 3rem);
+    justify-content: center;
+    margin: 0;
+    transition: 0.2s transform, 0.5s border;
+    width: clamp(2.6rem, 1.172vw, 3rem);
+
+    &.user-form-input__checkbox--invalid {
+      border-color: var(--color--invalid);
+    }
+
+    &:before {
+      background-color: var(--color--valid);
+      content: "";
+      display: block;
+      height: 65%;
+      transform: scale(0);
+      transition: 0.2s transform;
+      width: 65%;
+      z-index: 1;
+    }
+
+    &:checked {
+      &:before {
+        transform: scale(1);
+      }
+    }
+
+    &:focus-within {
+      border: 0.35rem dotted var(--color--focus);
+      outline: none;
+    }
+  }
+
+  .user-form-input__checkbox-label {
+    font-size: clamp(1.2rem, 0.547vw, 1.4rem);
+
+    sup {
+      color: var(--color--invalid);
+      font-size: 1.2rem;
+      margin: 0 1rem 0 0;
+      vertical-align: top;
+    }
+  }
+}

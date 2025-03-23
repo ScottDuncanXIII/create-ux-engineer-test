@@ -1,0 +1,28 @@
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30svh;
+
+  .loading__message {
+    animation: loadingAnim 0.8s linear infinite;
+    font-size: clamp(2.6rem, 1.953vw, 5rem);
+    color: var(--color--attention);
+    opacity: 1;
+  }
+}
+
+@keyframes loadingAnim {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

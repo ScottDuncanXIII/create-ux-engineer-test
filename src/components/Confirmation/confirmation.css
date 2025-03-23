@@ -1,0 +1,40 @@
+.confirmation {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  gap: 5em;
+  width: 100%;
+
+  .confirmation__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .confirmation__heading {
+    font-size: clamp(1.8rem, 1.094vw, 2.8rem);
+    color: var(--color--attention);
+  }
+
+  .confirmation__item {
+  }
+
+  .confirmation__item-heading {
+    font-size: clamp(1.2rem, 0.703vw, 1.8rem);
+  }
+
+  .confirmation__item-value {
+    color: var(--color-d);
+    font-size: clamp(1rem, 0.625vw, 1.6rem);
+  }
+
+  ul {
+    padding: 0 0 0 25px;
+    list-position: inside;
+  }
+
+  .confirmation__buttons {
+    display: flex;
+    gap: 3.6em;
+  }
+}
