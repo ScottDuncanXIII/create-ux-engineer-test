@@ -4,18 +4,20 @@ import gsap from "gsap";
 import UserFormInput from "../UserFormInput";
 
 import { ArrayItem, FormInput, InputState } from "../../types/Types";
-import { validateEmail, validatePassword } from "../../utils/Utils";
+import {
+  getInitialData,
+  validateEmail,
+  validatePassword,
+} from "../../utils/Utils";
 
 import "./user.form.css";
 import { useGSAP } from "@gsap/react";
 
 export default function UserForm({
   data,
-  defaultFormData,
   handleConfirmation,
 }: {
   data: FormInput[];
-  defaultFormData: FormInput[];
   handleConfirmation: (formData: FormInput[]) => void;
 }) {
   const [formData, setFormData] = useState<FormInput[]>(data);
@@ -225,7 +227,7 @@ export default function UserForm({
 
   function handleClearForm(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
-    setFormData(defaultFormData);
+    setFormData(getInitialData());
   }
 
   return (

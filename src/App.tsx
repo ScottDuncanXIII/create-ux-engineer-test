@@ -11,6 +11,7 @@ import { AppState, FormInput } from "./types/Types";
 import "./App.css";
 import { useGSAP } from "@gsap/react";
 import SplitType from "split-type";
+import { getInitialData } from "./utils/Utils";
 
 function App() {
   const headingRef = useRef(null);
@@ -36,125 +37,7 @@ function App() {
     );
   }, []);
 
-  const defaultInputState: FormInput = {
-    id: "",
-    label: "",
-    state: "idle",
-    type: "text",
-    value: "",
-    selectOptions: [],
-    isRequired: false,
-    errorList: [],
-  };
-
-  const defaultFormData: FormInput[] = [
-    {
-      ...defaultInputState,
-      id: "email",
-      label: "Email",
-      isRequired: true,
-      type: "email",
-    },
-    {
-      ...defaultInputState,
-      id: "password",
-      label: "Password",
-      type: "password",
-      isRequired: true,
-    },
-    {
-      ...defaultInputState,
-      id: "name",
-      label: "Name",
-      isRequired: true,
-    },
-    {
-      ...defaultInputState,
-      id: "org-name",
-      label: "Organization Name",
-      isRequired: true,
-    },
-    {
-      ...defaultInputState,
-      id: "user-role",
-      label: "User Role",
-    },
-    {
-      ...defaultInputState,
-      id: "add-members",
-      label: "Team Members",
-      type: "text-array",
-      valueArray: [],
-    },
-    {
-      ...defaultInputState,
-      id: "organisation-size",
-      label: "Organisation Size",
-      type: "select",
-      selectOptions: [
-        {
-          label: "Please Select a Size Range",
-          value: "",
-        },
-        {
-          label: "1-10",
-          value: "1-10",
-        },
-        {
-          label: "11-50",
-          value: "11-50",
-        },
-        {
-          label: "51-100",
-          value: "51-100",
-        },
-        {
-          label: "101-500",
-          value: "101-500",
-        },
-        {
-          label: "500+",
-          value: "500+",
-        },
-      ],
-    },
-    {
-      ...defaultInputState,
-      id: "plan-pricing",
-      label: "Pricing Plan",
-      type: "radio",
-      value: "Basic",
-      selectOptions: [
-        {
-          label: "Basic $",
-          value: "Basic",
-        },
-        {
-          label: "Standard $$",
-          value: "Standard",
-        },
-        {
-          label: "Premium $$$",
-          value: "Premium",
-        },
-      ],
-    },
-    {
-      ...defaultInputState,
-      id: "terms",
-      label: "Do you agree to the terms and conditions?",
-      type: "checkbox",
-      isRequired: true,
-    },
-    {
-      ...defaultInputState,
-      id: "mailing-list",
-      label: "Subscribe to our mailing list?",
-      type: "checkbox",
-    },
-  ];
-
-  const [formData, setFormData] = useState<FormInput[]>(defaultFormData);
+  const [formData, setFormData] = useState<FormInput[]>(getInitialData());
   const [appState, setAppState] = useState<AppState>("form");
 
   function handleConfirmation(formData: FormInput[]) {
@@ -203,11 +86,7 @@ function App() {
         </h1>
 
         {appState === "form" && (
-          <UserForm
-            data={formData}
-            defaultFormData={defaultFormData}
-            handleConfirmation={handleConfirmation}
-          />
+          <UserForm data={formData} handleConfirmation={handleConfirmation} />
         )}
 
         {appState === "confirmation" && (
